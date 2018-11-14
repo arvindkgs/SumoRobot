@@ -136,15 +136,15 @@ void SRL2::beep() {
 }
 
 void SRL2::Forward(int amt){
-  drive(80);  //turn the motors on forward 80% maximum speed
-  delay(amt*tuningFwd2);  //wait
-  drive(0);  //turn off the motors
+  drive(amt);  //turn the motors on forward 80% maximum speed
+  //delay(amt*tuningFwd2);  //wait
+  //drive(0);  //turn off the motors
 }
 
 void SRL2::Backward(int amt){
-  drive(-80);  //turn the motors on forward 80% maximum speed
-  delay(amt*tuningBwd2);  //wait
-  drive(0);  //turn off the motors
+  drive(-1*amt);  //turn the motors on forward 80% maximum speed
+  //delay(amt*tuningBwd2);  //wait
+  //drive(0);  //turn off the motors
 }
 
 void SRL2::Left(int deg){

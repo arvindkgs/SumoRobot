@@ -14,6 +14,7 @@
 // Competition configuration settings
 #define attackDistance 15
 #define debug false
+#define speed 100
 SRL2 bot(debug);
 
 void setup() {
@@ -50,36 +51,44 @@ void loop() {
 void compete() {
   bot.readIR();
   if( bot.getIR(rearSensor) < bot.getThreshold(rearSensor) ){
-      Serial.println("Detected border on rearSensor");
+      if(debug){
+        Serial.println("Detected border on rearSensor");
+      }
       //Drive forward at full speed for 0.1 second
-      bot.Forward(100);
+      bot.Forward(speed);
   }
   else if( bot.getIR(leftSensor) < bot.getThreshold(leftSensor) && bot.getIR(rightSensor) < bot.getThreshold(rightSensor) ){
-      Serial.println("Detected border on front sensors");
-      //Backward for 1 second
-      bot.Backward(1000);
+      if(debug){
+        Serial.println("Detected border on front sensors");
+      }
+      //Move Backward
+      bot.Backward(speed);
       // Pick a random number of degrees to turn between -90 (right) and 90 (left)
       bot.turnDegrees(0.0 + bot.randomTurn());
   }
   else if( bot.getIR(leftSensor) < bot.getThreshold(leftSensor) ){
-      Serial.println("Detected border on leftSensor");
+      if(debug){
+        Serial.println("Detected border on leftSensor");
+      }
       // Turn 90 degrees to the right and go forward for 1 second
       bot.Right(120);
-      bot.Forward(100);
+      bot.Forward(speed);
   }
   else if( bot.getIR(rightSensor) < bot.getThreshold(rightSensor) ){
     // Turn 90 degrees to the Left and go forward for 1 second
-      Serial.println("Detected border on rightSensor");
+      if(debug){
+        Serial.println("Detected border on rightSensor");
+      }
       bot.Left(120);
-      bot.Forward(100);
+      bot.Forward(speed);
   }
   if( bot.objectWithin(attackDistance) ){
       // Attack
       bot.beep();
-      bot.Forward(100);
+      bot.Forward(speed);
   }
   else{
     //Wander
-    bot.Forward(100);
+    bot.Forward(speed);
   }
 }
