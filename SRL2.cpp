@@ -23,9 +23,9 @@ SRL2::SRL2(bool debug) {
 	debug2 = debug;
 	leftIsFlipped2 = true;
   rightIsFlipped2 = true; 
-	lThresh2 = 500; //default threshold values inbetween black and white for the line sensors
-	rThresh2 = 500;
-	rearThresh2 = 500;
+	lThresh2 = 100; //default threshold values inbetween black and white for the line sensors
+	rThresh2 = 100;
+	rearThresh2 = 100;
 	tuningTurn2 = 1.0;
 	tuningFwd2 = 1.0;
 	tuningBwd2 = 1.0;
@@ -108,7 +108,7 @@ void SRL2::begin_countdown(){
   }
 
   // wait one more full second before playing our next note
-  delay(1000);
+  //delay(1000);
 
   digitalWrite(LED, HIGH);
   // Play a higher note for a 500ms
@@ -118,7 +118,7 @@ void SRL2::begin_countdown(){
   // Our countdown is nearly complete. Wait 1
   // more second and then set state to 2 so that
   // we can begin our competition!
-  delay(1000);
+  //delay(1000);
   state = COMPETING;
 }
 
@@ -371,14 +371,14 @@ void SRL2::calibrateBlackWhite() {
   }
   lBlack = lBlack / n; rBlack = rBlack / n;  rearBlack = rearBlack / n;
   lWhite = lWhite / n; rWhite = rWhite / n;  rearWhite = rearWhite / n;
-  if(debug2){
+  //if(debug2){
 	  Serial.print("Black averages: \nLeft "); Serial.println(lBlack); 
 	  Serial.print("Right "); Serial.println(rBlack); 
 	  Serial.print("Rear "); Serial.println(rearBlack);
 	  Serial.print("White averages: \nLeft "); Serial.println(lWhite);
 	  Serial.print("Right "); Serial.println(rWhite);
 	  Serial.print("Rear "); Serial.println(rearWhite);
-  }
+  //}
   lThresh2 = lWhite/2 + lBlack/2;
   rThresh2 = rWhite/2 + rBlack/2;
   rearThresh2 = rearWhite/2 + rearBlack/2;

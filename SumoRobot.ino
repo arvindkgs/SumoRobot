@@ -12,9 +12,10 @@
 /** Global Variables and Configuration Settings **/
 /*************************************************/
 // Competition configuration settings
-#define attackDistance 15
+#define attackDistance 25
 #define debug false
-#define speed 100
+#define speed 80
+#define angle 90
 SRL2 bot(debug);
 
 void setup() {
@@ -30,6 +31,7 @@ void loop() {
       // competition countdown
       Serial.println("Competition countdown starting...");
       Serial.println("Good luck!");
+      //bot.calibrateBlackWhite();
       bot.begin_countdown();
     } else {
       bot.state = IDLING;
@@ -71,15 +73,15 @@ void compete() {
         Serial.println("Detected border on leftSensor");
       }
       // Turn 90 degrees to the right and go forward for 1 second
-      bot.Right(120);
+      bot.Right(angle);
       bot.Forward(speed);
   }
   else if( bot.getIR(rightSensor) < bot.getThreshold(rightSensor) ){
-    // Turn 90 degrees to the Left and go forward for 1 second
+      // Turn 90 degrees to the Left and go forward for 1 second
       if(debug){
         Serial.println("Detected border on rightSensor");
       }
-      bot.Left(120);
+      bot.Left(angle);
       bot.Forward(speed);
   }
   if( bot.objectWithin(attackDistance) ){
