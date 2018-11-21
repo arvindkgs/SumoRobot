@@ -14,7 +14,7 @@
 // Competition configuration settings
 #define attackDistance 25
 #define debug false
-#define speed 80
+#define speed 100
 #define angle 90
 SRL2 bot(debug);
 

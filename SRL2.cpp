@@ -108,7 +108,7 @@ void SRL2::begin_countdown(){
   }
 
   // wait one more full second before playing our next note
-  //delay(1000);
+  delay(1000);
 
   digitalWrite(LED, HIGH);
   // Play a higher note for a 500ms
@@ -118,7 +118,7 @@ void SRL2::begin_countdown(){
   // Our countdown is nearly complete. Wait 1
   // more second and then set state to 2 so that
   // we can begin our competition!
-  //delay(1000);
+  delay(1000);
   state = COMPETING;
 }
 
