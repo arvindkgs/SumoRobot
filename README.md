@@ -3,6 +3,7 @@
 C++ code that powers a MRK2 robot http://www.sumorobotleague.com/
 
 Below is an official match that I won.
+
 ![Winning round](https://github.com/arvindkgs/SumoRobot/blob/master/winning.gif)
 
 Mini-sumo is a competition between robots based on Japanese wrestling –
