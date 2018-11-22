@@ -8,12 +8,9 @@ Below is an official match that I won.
 
 Mini-sumo is a competition between robots based on Japanese wrestling –
 “sumo” is the Japanese word for wrestling. Similar to traditional sumo matches,
-two opponents (robots) face each other in a ring named a dohyo – see below figure.
+two opponents (robots) face each other in a ring named a dohyo.
 The object is to stay in the ring while pushing the opposing robot out of the ring.
 The robot that stays in the ring the longest wins the match.
-
-
-![Figure 1](https://github.com/arvindkgs/SumoRobot/blob/master/dohyo.png)
 
 Theory of Operation
 * stay on the dohyo 
